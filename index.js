@@ -3,6 +3,7 @@ const app = express();
 const port = 8000;
 
 app.use(express.urlencoded());
+app.use(express.static("./assets"));
 
 app.set("view engine", "ejs");
 // Now that you know that we are using .ejs file you go and look inside views folder for it.
