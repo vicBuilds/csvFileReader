@@ -10,8 +10,24 @@
 <body>
 
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="avatar" />
+        <input type="file" name="upload"/>
+        <p><% if(comment){ %>
+            <%= comment%>
+
+        <%}%>
+        </p>
+        <button type="submit">Upload</button>
       </form>
+
+      <div class="file-container">
+        <% if(file){%>
+            <ul>
+                <% for(let each of  file) {%>
+                    <a href="/file/<%= each.id%>"><li><%= each.originalName%></li></a>
+                <%}%>    
+            </ul>
+        <%}%>        
+      </div>  
  
 <script src="/scripts/home.js"></script>      
 </body>
