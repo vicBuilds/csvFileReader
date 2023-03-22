@@ -43,6 +43,11 @@ const handleSearch = (e) => {
 let inputBox = document.getElementById("search-input");
 // console.log(inputBox);
 
+let dropdown = document.getElementById("fields");
+dropdown.addEventListener("change", (e) => {
+  handleSearch(e);
+});
+
 inputBox.addEventListener("keyup", (e) => {
   //console.log("123456");
   handleSearch(e);

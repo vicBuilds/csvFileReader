@@ -9,13 +9,18 @@
 </head>
 
 <body>
-
+  <div class="header">
+    <h1>Showing Data for <%= name%></h1>
+    
+  
+  </div>
     <a href="/"><button>Back to HomePage</button></a>
     
     <div class="filter-container">
             <form method="post" action="/submit-search">
                 <input placeholder="Enter the Value to Search" name="input" id="search-input"></input>
                 <input value="<%= id%>" name="id" style="display:none">
+                <label for="fileds">Search By</label>
                 <select id="fields" name="select">
                     <% Object.keys(data[0]).forEach(function(key) { %>
                     <option value="<%= key%>"><%= key%></option>

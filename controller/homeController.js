@@ -54,9 +54,12 @@ module.exports.showData = async (req, res) => {
         //   { NAME: 'Bugs Bunny', AGE: '22' }
         // ]
 
+        console.log(requiredFile.originalName);
+
         return res.render("data", {
           data: results,
           id: req.params.id,
+          name: requiredFile.originalName,
         });
       });
   } catch (err) {
