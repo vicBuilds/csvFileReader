@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
+// Configaration for Multer and its local storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, "..", "./uploads/csv"));
@@ -29,6 +30,7 @@ router.get("/file/:id", homeController.showData);
 
 router.get("/delete/:id", homeController.deleteItem);
 
-router.post("/submit-search", homeController.handleSearch);
+// Search has been handled from Front End.
+//router.post("/submit-search", homeController.handleSearch);
 
 module.exports = router;

@@ -5,34 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>CSV File Reader</title>
 </head>
 <body>
 
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="upload"/>
-        <p><% if(comment){ %>
-            <%= comment%>
+    <div class="header">
+        
+        <h1><i class="fa-solid fa-file-csv"></i>&nbsp;CSV FILE READER<br></h1>
+        <sub><i>Upload,Read & Parse CSV Files</i></sub>
+        
+    </div>    
 
-        <%}%>
-        </p>
-        <button type="submit">Upload</button>
-      </form>
+    <div class="uploads">
+        <h3>Upload a File (Files Other than CSV will not work)</h3>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="upload" required/>
+            <p><% if(comment){ %>
+                <!-- <%= comment%> -->
+                
+            <%}%>
+            </p>
+            <button><i class="fa-solid fa-upload"></i>&nbsp;Upload</button>
+          </form>
+    </div>
 
       <div class="file-container">
+        <h3><i class="fa-solid fa-list-ul"></i>&nbsp;List of All Uploaded Files:</h3>
         <% if(file){%>
-            <ul>
+            <% if(file.length==0){%>
+                <p>No Files to Show</p>
+
+            <%}%>    
+            <ul type="dot">
                 <% for(let each of  file) {%>
                     <li><a href="/file/<%= each.id%>"><%= each.originalName%></a>
-                    <a href="/delete/<%= each.id%>"><img src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png" style="height:20px; width:20px"></a>
+                    <a href="/delete/<%= each.id%>"><img src="https://cdn-icons-png.flaticon.com/512/10057/10057582.png" style="height:20px; width:20px"></a>
                     
                     </li>
 
                 <%}%>    
-            </ul>
+                </ul>
         <%}%>        
       </div>  
  
-
+<sub><i class="fa-regular fa-copyright"></i>&nbsp; <i>Designed and Developed by Victor Mitra</i></sub>
 </body>
 </html>

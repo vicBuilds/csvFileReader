@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 // Now that you know that we are using .ejs file you go and look inside views folder for it.
 app.set("views", "./views");
 
+// All Routes are set up in the routes folder
 app.use("/", require("./routes/index.js"));
 
 app.listen(port, () => {

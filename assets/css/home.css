@@ -1,3 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Babylonica&family=Dancing+Script&family=Lobster&family=Oxanium:wght@600&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+
 body{
-    background-color: aqua;
+    background-color: #048383;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header h1{
+    margin-bottom: -20px;
+    margin-top: 0px;
+    font-size: 5rem;
+    text-shadow: 0px 2px 5px white;
+}
+.header sub{
+    font-size: 1.2em;
+}
+
+button{
+   background-color: black;
+   color: white;
+   padding: 5px 4px;
+   border-radius: 4px;
+   box-shadow: 2px 4px 6px white;
+   transition: 0.9s;
+   cursor: pointer;
+}
+button:hover{
+    letter-spacing: 1px;
+}
+.uploads{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    border: 2px solid #4d1212;
+    width: 50%;
+    margin-top: 45px;
+    padding: 20px;
+}
+.uploads h3{
+    margin-top: -20px;
+}
+.file-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px 5px;
+    margin-top: 25px;
+    border: 2px double rgb(0, 0, 0);
+    width: 70%;
+}
+ul{
+    width: 89%;
+    display: flex;
+    flex-direction: column;
+    margin: -3px 20px;
+}
+
+ul li{
+    display: flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin: 5px;
+    font-size: 1.3em;
+}
+ul li a{
+    margin: 0px 8px;
+}
+sub{
+    margin-top: 15px;
 }

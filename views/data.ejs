@@ -5,21 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/data.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Data</title>
 </head>
 
 <body>
   <div class="header">
-    <h1>Showing Data for <%= name%></h1>
+    <h1>Data for <%= name%></h1>
     
-  
   </div>
-    <a href="/"><button>Back to HomePage</button></a>
+    <a href="/"><button><i class="fa-solid fa-house"></i>&nbsp;Back to HomePage</button></a>
     
     <div class="filter-container">
             <form method="post" action="/submit-search">
                 <input placeholder="Enter the Value to Search" name="input" id="search-input"></input>
                 <input value="<%= id%>" name="id" style="display:none">
+                <br>
                 <label for="fileds">Search By</label>
                 <select id="fields" name="select">
                     <% Object.keys(data[0]).forEach(function(key) { %>
