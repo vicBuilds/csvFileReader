@@ -27,4 +27,8 @@ router.post("/upload", upload.single("upload"), homeController.upload);
 
 router.get("/file/:id", homeController.showData);
 
+router.get("/delete/:id", homeController.deleteItem);
+
+router.post("/submit-search", homeController.handleSearch);
+
 module.exports = router;

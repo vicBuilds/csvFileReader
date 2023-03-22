@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  th, td {
+    border: 1px solid #090808;
+    padding: 8px;
+  }
+  th {
+    background-color: #35c618;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+  }

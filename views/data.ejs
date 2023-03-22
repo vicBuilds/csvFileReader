@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/data.css">
+    <title>Data</title>
+</head>
+
+<body>
+
+    <a href="/"><button>Back to HomePage</button></a>
+    
+    <div class="filter-container">
+            <form method="post" action="/submit-search">
+                <input placeholder="Enter the Value to Search" name="input" id="search-input"></input>
+                <input value="<%= id%>" name="id" style="display:none">
+                <select id="fields" name="select">
+                    <% Object.keys(data[0]).forEach(function(key) { %>
+                    <option value="<%= key%>"><%= key%></option>
+                    <%});%>
+                
+                </select>
+                <!-- <button id="search" type="submit">Search</button> -->
+            </form>
+    </div>
+
+    <table id="main-table">
+        <tr>
+          <% Object.keys(data[0]).forEach(function(key) { %>
+            <th><%= key %></th>
+          <% }); %>
+        </tr>
+        <% for(var i=0; i<data.length; i++) { %>
+          <tr>
+            <% Object.keys(data[i]).forEach(function(key) { %>
+              <td><%= data[i][key] %></td>
+            <% }); %>
+          </tr>
+        <% } %>
+      </table>
+      
+      <script src="/scripts/home.js"></script>      
+</body>
+</html>

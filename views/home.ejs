@@ -23,12 +23,16 @@
         <% if(file){%>
             <ul>
                 <% for(let each of  file) {%>
-                    <a href="/file/<%= each.id%>"><li><%= each.originalName%></li></a>
+                    <li><a href="/file/<%= each.id%>"><%= each.originalName%></a>
+                    <a href="/delete/<%= each.id%>"><img src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png" style="height:20px; width:20px"></a>
+                    
+                    </li>
+
                 <%}%>    
             </ul>
         <%}%>        
       </div>  
  
-<script src="/scripts/home.js"></script>      
+
 </body>
 </html>

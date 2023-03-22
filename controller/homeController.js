@@ -1,6 +1,5 @@
 const csv = require("csv-parser");
 const fs = require("fs");
-const results = [];
 
 const File = require("../models/file");
 
@@ -37,15 +36,63 @@ module.exports.upload = async (req, res) => {
 };
 
 module.exports.showData = async (req, res) => {
+  const results = [];
+
   try {
     let requiredFile = await File.findById(req.params.id);
     if (!requiredFile) {
       return res.redirect("back");
     }
-    console.log(requiredFile);
 
-    return res.redirect("back");
+    fs.createReadStream(requiredFile.path)
+      .pipe(csv())
+      .on("data", (data) => results.push(data))
+      .on("end", () => {
+        //console.log(results);
+        // [
+        //   { NAME: 'Daffy Duck', AGE: '24' },
+        //   { NAME: 'Bugs Bunny', AGE: '22' }
+        // ]
+
+        return res.render("data", {
+          data: results,
+          id: req.params.id,
+        });
+      });
   } catch (err) {
     console.log("There is some Error ", err);
+  }
+};
+
+module.exports.handleSearch = async (req, res) => {
+  const results = [];
+  //console.log(req.body);
+  const { id, input, select } = req.body;
+
+  let result = await File.findById(id);
+
+  fs.createReadStream(result.path)
+    .pipe(csv())
+    .on("data", (data) => {
+      console.log("Data is ", data);
+      results.push(data);
+    })
+    .on("end", () => {
+      //console.log(results);
+      // [
+      //   { NAME: 'Daffy Duck', AGE: '24' },
+      //   { NAME: 'Bugs Bunny', AGE: '22' }
+      // ]
+
+      return res.end("Working on this");
+    });
+};
+
+module.exports.deleteItem = async (req, res) => {
+  try {
+    await File.findByIdAndDelete(req.params.id);
+    return res.redirect("back");
+  } catch (err) {
+    console.log(err);
   }
 };
